@@ -1,0 +1,56 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base */
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-white text-slate-800;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  @apply outline-2 outline-offset-2 outline-brand-gold;
+}
+
+/* Prose theme */
+.prose {
+  @apply prose-slate max-w-none;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  @apply font-serif text-brand-dark;
+}
+
+.prose a {
+  @apply underline decoration-slate-300 underline-offset-4 hover:decoration-brand-gold transition-colors;
+}
+
+.prose p,
+.prose li {
+  @apply leading-relaxed;
+}
+
+.prose strong {
+  @apply text-brand-dark font-semibold;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
