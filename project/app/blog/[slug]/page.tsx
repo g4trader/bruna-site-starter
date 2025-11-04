@@ -56,8 +56,11 @@ export default async function Page({ params }: Params) {
             )}
           </div>
           <div className="prose prose-slate max-w-none text-brand-ink leading-relaxed">
-            {/* @ts-expect-error Async Server Component */}
-            <MDXRemote source={content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
+            {!content?.trim() ? (
+              <p className="text-slate-600">Conteúdo indisponível.</p>
+            ) : (
+              <MDXRemote source={content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
+            )}
           </div>
           <div className="pt-8 border-t border-brand-line">
             <Link
