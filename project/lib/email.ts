@@ -1,10 +1,22 @@
 
 import { Resend } from "resend";
 
-export const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazy initialization para evitar problemas durante o build
+function getResend() {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) return null;
+  return new Resend(apiKey);
+}
 
 export async function sendLeadNotification(data: Record<string, any>) {
   if (!process.env.NOTIFY_TO) return;
+  
+  const resend = getResend();
+  if (!resend) {
+    console.warn("Resend API key not configured");
+    return;
+  }
+
   const subject = `Novo lead — Site Bruna: ${data.name}`;
   const html = `
     <h2>Novo lead</h2>
