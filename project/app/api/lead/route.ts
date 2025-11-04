@@ -4,6 +4,7 @@ import { leadSchema } from "@/lib/validators";
 import { sendLeadNotification } from "@/lib/email";
 
 export const runtime = "edge";
+export const dynamic = "force-dynamic";
 
 // Simple memory store fallback (replace with KV/DB in project)
 const STORE: any[] = [];
