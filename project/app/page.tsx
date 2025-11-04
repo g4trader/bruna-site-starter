@@ -101,7 +101,7 @@ export default async function Page() {
             <div className="flex flex-wrap gap-3">
               <a
                 href="/contato"
-                className="rounded-xl bg-brand-dark text-white px-6 py-3 font-semibold shadow-sm hover:opacity-90 transition-opacity"
+                className="rounded-xl bg-brand-dark text-white px-6 py-3 font-semibold shadow-sm hover:bg-brand-dark/90 transition-all duration-200 ease-in-out"
               >
                 Agendar consulta
               </a>
@@ -109,18 +109,18 @@ export default async function Page() {
                 href="https://wa.me/5551981635522"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl border border-brand-line px-6 py-3 font-semibold hover:bg-slate-50 transition-colors"
+                className="rounded-xl border-2 border-brand-dark text-brand-dark px-6 py-3 font-semibold hover:bg-brand-gold hover:border-brand-gold hover:text-brand-dark transition-all duration-200 ease-in-out"
               >
                 Falar no WhatsApp
               </a>
             </div>
-            <div className="pt-4 space-y-2 text-sm text-slate-600">
-              <p><strong>Telefone:</strong> (51) 98163-5522</p>
-              <p><strong>E-mail:</strong> bruna@brunamelgarejo.adv.br</p>
-              <p><strong>Site:</strong> brunamelgarejo.adv.br</p>
+            <div className="pt-4 space-y-2 text-sm text-brand-ink">
+              <p><strong className="text-brand-dark">Telefone:</strong> (51) 98163-5522</p>
+              <p><strong className="text-brand-dark">E-mail:</strong> bruna@brunamelgarejo.adv.br</p>
+              <p><strong className="text-brand-dark">Site:</strong> brunamelgarejo.adv.br</p>
             </div>
           </div>
-          <div className="p-8 rounded-2xl border border-brand-line bg-white shadow-sm">
+          <div className="p-8 rounded-2xl border border-brand-light bg-white shadow-sm">
             <h2 className="text-xl font-semibold mb-4 text-brand-dark">Contato rápido</h2>
             <LeadForm />
           </div>
@@ -137,26 +137,30 @@ export default async function Page() {
         </section>
 
         {/* PILARES */}
-        <section className="py-16 bg-slate-50 rounded-3xl -mx-4 px-4 md:mx-0 md:px-8">
+        <section className="py-16 bg-brand-light rounded-3xl -mx-4 px-4 md:mx-0 md:px-8">
           <h2 className="text-3xl md:text-4xl font-serif text-brand-dark mb-8">Por que nos escolher</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
                 title: "Estratégia",
+                icon: "🎯",
                 description: "Planejamento técnico em cada fase do processo, com análise profunda e defesa fundamentada.",
               },
               {
                 title: "Ética",
+                icon: "⚖️",
                 description: "Atuação responsável, sem promessas de resultado. Transparência e compromisso com a verdade jurídica.",
               },
               {
                 title: "Sensibilidade",
+                icon: "🤝",
                 description: "Escuta qualificada e respeito às singularidades. Cada caso é único e merece atenção dedicada.",
               },
             ].map((pilar) => (
-              <div key={pilar.title} className="p-6 rounded-2xl border border-brand-line bg-white">
+              <div key={pilar.title} className="p-6 rounded-2xl border border-brand-gold/20 bg-white">
+                <div className="text-3xl mb-3">{pilar.icon}</div>
                 <h3 className="text-xl font-semibold mb-3 text-brand-dark">{pilar.title}</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">{pilar.description}</p>
+                <p className="text-sm text-brand-ink leading-relaxed">{pilar.description}</p>
               </div>
             ))}
           </div>
@@ -215,13 +219,13 @@ export default async function Page() {
             <h2 className="text-2xl md:text-3xl font-serif mb-4">
               Pronto para defender seus direitos?
             </h2>
-            <p className="text-lg mb-6 opacity-90">
+            <p className="text-lg mb-6 text-white/90">
               Entre em contato e agende uma consulta. Estamos aqui para ajudar.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <a
                 href="/contato"
-                className="rounded-xl bg-white text-brand-dark px-6 py-3 font-semibold hover:opacity-90 transition-opacity"
+                className="rounded-xl bg-brand-gold text-brand-dark px-6 py-3 font-semibold hover:bg-brand-gold/90 transition-all duration-200 ease-in-out"
               >
                 Agendar consulta
               </a>
@@ -229,7 +233,7 @@ export default async function Page() {
                 href="https://wa.me/5551981635522"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl border border-white/20 px-6 py-3 font-semibold hover:bg-white/10 transition-colors"
+                className="rounded-xl border-2 border-white/30 px-6 py-3 font-semibold hover:bg-white/10 hover:border-white/50 transition-all duration-200 ease-in-out"
               >
                 Falar no WhatsApp
               </a>

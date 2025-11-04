@@ -11,15 +11,15 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          dark: "#0F172A",
-          ink: "#1E293B",
+          dark: "#0B132B",
           gold: "#C9A227",
-          line: "#E2E8F0",
+          ink: "#334155",
+          light: "#F8FAFC",
         },
       },
       fontFamily: {
-        serif: ["ui-serif","Georgia","serif"],
-        sans: ["ui-sans-serif","system-ui","-apple-system","Segoe UI","Roboto"],
+        serif: ["Playfair Display", "Georgia", "serif"],
+        sans: ["Inter", "ui-sans-serif", "system-ui"],
       },
       borderRadius: { xl: "0.75rem", "2xl": "1rem" },
     },

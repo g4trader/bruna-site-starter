@@ -11,23 +11,23 @@ export default function PublicationCard({ title, summary, href, date }: Publicat
   return (
     <Link
       href={href}
-      className="group block p-6 rounded-2xl border bg-white hover:border-brand-ink hover:shadow-md transition-all"
+      className="group block p-6 rounded-2xl border border-brand-gold/20 bg-white hover:border-brand-gold/40 hover:bg-brand-light transition-all duration-200 ease-in-out"
     >
-      <h3 className="font-semibold text-brand-ink group-hover:text-brand-dark transition-colors">
+      <h3 className="font-semibold text-brand-dark group-hover:text-brand-gold transition-colors duration-200 ease-in-out">
         {title}
       </h3>
       {summary && (
-        <p className="text-sm text-slate-600 mt-2 line-clamp-2">{summary}</p>
+        <p className="text-sm text-brand-ink mt-2 line-clamp-2 leading-relaxed">{summary}</p>
       )}
       {date && (
-        <p className="text-xs text-slate-500 mt-3">
+        <p className="text-xs text-brand-ink/60 mt-3">
           {new Date(date).toLocaleDateString("pt-BR", {
             year: "numeric",
             month: "long",
           })}
         </p>
       )}
-      <span className="inline-block mt-3 text-sm font-medium text-brand-gold group-hover:underline">
+      <span className="inline-block mt-3 text-sm font-medium text-brand-gold group-hover:text-brand-dark transition-colors duration-200 ease-in-out">
         Ler mais →
       </span>
     </Link>

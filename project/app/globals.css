@@ -6,10 +6,13 @@
 /* Base */
 :root {
   color-scheme: light;
+  --font-sans: "Inter", ui-sans-serif, system-ui;
+  --font-serif: "Playfair Display", Georgia, serif;
 }
 
 body {
-  @apply bg-white text-slate-800;
+  @apply bg-white text-brand-ink;
+  font-family: var(--font-sans);
 }
 
 /* Focus styles for accessibility */
@@ -30,12 +33,12 @@ body {
 }
 
 .prose a {
-  @apply underline decoration-slate-300 underline-offset-4 hover:decoration-brand-gold transition-colors;
+  @apply underline decoration-brand-gold/30 underline-offset-4 hover:decoration-brand-gold transition-colors duration-200 ease-in-out;
 }
 
 .prose p,
 .prose li {
-  @apply leading-relaxed;
+  @apply leading-relaxed text-brand-ink;
 }
 
 .prose strong {

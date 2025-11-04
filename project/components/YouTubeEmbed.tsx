@@ -26,7 +26,7 @@ export default function YouTubeEmbed({ url, title = "Vídeo", startAt }: YouTube
 
   return (
     <div className="space-y-2">
-      <div className="aspect-video rounded-xl overflow-hidden bg-black">
+      <div className="aspect-video rounded-xl overflow-hidden bg-black border-2 border-brand-gold/20 shadow-lg">
         <iframe
           className="w-full h-full"
           src={embedUrl}
@@ -35,7 +35,7 @@ export default function YouTubeEmbed({ url, title = "Vídeo", startAt }: YouTube
           title={title}
         />
       </div>
-      {title && <p className="text-sm text-slate-600">{title}</p>}
+      {title && <p className="text-sm text-brand-ink font-medium">{title}</p>}
     </div>
   );
 }

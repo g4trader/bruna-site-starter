@@ -22,21 +22,21 @@ export default function FAQ({ items }: FAQProps) {
         return (
           <div
             key={idx}
-            className="rounded-2xl border bg-white overflow-hidden transition-all"
+            className="rounded-2xl border border-brand-light bg-white overflow-hidden transition-all duration-200 ease-in-out"
           >
             <button
               onClick={() => setOpenIndex(isOpen ? null : idx)}
-              className="w-full p-5 flex items-center justify-between text-left hover:bg-slate-50 transition-colors"
+              className="w-full p-5 flex items-center justify-between text-left hover:bg-brand-light transition-colors duration-200 ease-in-out"
               aria-expanded={isOpen}
             >
-              <span className="font-semibold pr-4">{item.question}</span>
+              <span className="font-semibold text-brand-dark pr-4">{item.question}</span>
               <ChevronDown
-                className={`flex-shrink-0 transition-transform ${isOpen ? "rotate-180" : ""}`}
+                className={`flex-shrink-0 transition-transform duration-200 ease-in-out text-brand-gold ${isOpen ? "rotate-180" : ""}`}
                 size={20}
               />
             </button>
             {isOpen && (
-              <div className="px-5 pb-5 text-sm text-slate-600 leading-relaxed">
+              <div className="px-5 pb-5 text-sm text-brand-ink leading-relaxed">
                 {item.answer}
               </div>
             )}

@@ -20,18 +20,31 @@ export default function NewsletterForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
       <div>
-        <Field label="Seu e-mail" placeholder="email@exemplo.com" {...register("email")} error={errors.email?.message} />
+        <label className="block space-y-1">
+          <span className="text-xs font-medium text-white/90">Seu e-mail</span>
+          <input
+            {...register("email")}
+            type="email"
+            placeholder="email@exemplo.com"
+            className="w-full rounded-xl border border-white/20 bg-white/10 backdrop-blur-sm px-3 py-2 text-sm text-white placeholder:text-white/50 outline-none focus:ring-2 focus:ring-brand-gold focus:border-brand-gold transition-all duration-200 ease-in-out"
+          />
+        </label>
+        {errors.email && <span className="text-xs text-red-400">{errors.email.message}</span>}
       </div>
       {/* Honeypot */}
       <input type="text" className="hidden" tabIndex={-1} autoComplete="off" {...register("honey")} />
-      <label className="flex items-start gap-2 text-xs">
-        <input type="checkbox" {...register("consent")} className="mt-1" />
+      <label className="flex items-start gap-2 text-xs text-white/80">
+        <input type="checkbox" {...register("consent")} className="mt-1 accent-brand-gold" />
         <span>Concordo em receber comunicações e com o tratamento de dados conforme a Política de Privacidade.</span>
       </label>
-      {errors.consent && <span className="text-xs text-red-600">{errors.consent.message}</span>}
-      <Button type="submit" disabled={isSubmitting} className="w-full sm:w-auto">
+      {errors.consent && <span className="text-xs text-red-400">{errors.consent.message}</span>}
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className="w-full sm:w-auto rounded-xl bg-brand-gold text-brand-dark px-4 py-2 text-sm font-semibold hover:bg-brand-gold/90 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 ease-in-out"
+      >
         {isSubmitting ? "Enviando..." : "Assinar"}
-      </Button>
+      </button>
     </form>
   );
 }
