@@ -6,7 +6,9 @@ export const leadSchema = z.object({
   email: z.string().email("E-mail inválido"),
   phone: z.string().min(8, "Informe um telefone/WhatsApp"),
   message: z.string().min(10, "Conte brevemente seu caso"),
-  consent: z.literal(true, { errorMap: () => ({ message: "É necessário consentir com a LGPD" }) }),
+  consent: z
+    .boolean()
+    .refine(v => v === true, { message: "É necessário consentir com a LGPD" }),
   honey: z.string().optional()
 });
 
@@ -16,7 +18,9 @@ export const contactSchema = leadSchema.extend({
 
 export const newsletterSchema = z.object({
   email: z.string().email("E-mail inválido"),
-  consent: z.literal(true, { errorMap: () => ({ message: "Confirme o consentimento" }) }),
+  consent: z
+    .boolean()
+    .refine(v => v === true, { message: "É necessário consentir com a LGPD" }),
   honey: z.string().optional()
 });
 
