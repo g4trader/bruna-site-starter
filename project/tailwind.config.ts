@@ -18,8 +18,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        serif: ["Playfair Display", "Georgia", "serif"],
-        sans: ["Inter", "ui-sans-serif", "system-ui"],
+        serif: ["var(--font-serif)", "Playfair Display", "Georgia", "serif"],
+        sans: ["var(--font-sans)", "Inter", "ui-sans-serif", "system-ui"],
       },
       borderRadius: { xl: "0.75rem", "2xl": "1rem" },
     },
