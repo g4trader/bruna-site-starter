@@ -4,6 +4,7 @@ import { newsletterSchema } from "@/lib/validators";
 import { Resend } from "resend";
 
 export const runtime = "edge";
+export const dynamic = "force-dynamic";
 
 // Simple memory store (replace with KV/DB in production)
 const NEWS: any[] = [];
