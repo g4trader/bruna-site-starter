@@ -45,5 +45,5 @@ export async function readMDX(dir: "publicacoes" | "blog", slug: string) {
   const file = path.join(root, "content", dir, `${slug}.mdx`);
   const raw = await fs.readFile(file, "utf8");
   const { data, content } = matter(raw);
-  return { meta: { ...data, slug }, content };
+  return { meta: { ...data, slug } as any, content };
 }
