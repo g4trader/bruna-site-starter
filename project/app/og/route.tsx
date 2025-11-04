@@ -2,9 +2,6 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Bruna Melgarejo — Advocacia Criminal";
-export const contentType = "image/png";
-export const size = { width: 1200, height: 630 };
 
 export async function GET() {
   return new ImageResponse(
@@ -30,6 +27,9 @@ export async function GET() {
         </div>
       </div>
     ),
-    { ...size }
+    {
+      width: 1200,
+      height: 630,
+    }
   );
 }
