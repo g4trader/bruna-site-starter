@@ -1,5 +1,7 @@
 
 import type { Config } from "tailwindcss";
+import typography from "@tailwindcss/typography";
+
 const config: Config = {
   content: [
     "./app/**/*.{ts,tsx}",
@@ -22,6 +24,7 @@ const config: Config = {
       borderRadius: { xl: "0.75rem", "2xl": "1rem" },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [typography],
 };
+
 export default config;
