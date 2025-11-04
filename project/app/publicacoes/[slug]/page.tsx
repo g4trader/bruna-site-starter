@@ -15,8 +15,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   try {
     const { meta } = await readMDX("publicacoes", params.slug);
     return {
-      title: meta.title,
-      description: meta.summary || "Publicação acadêmica sobre Direito Penal e Processo Penal.",
+      title: (meta as any).title || "Publicação",
+      description: (meta as any).summary || "Publicação acadêmica sobre Direito Penal e Processo Penal.",
     };
   } catch {
     return {

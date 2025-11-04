@@ -15,8 +15,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   try {
     const { meta } = await readMDX("blog", params.slug);
     return {
-      title: meta.title,
-      description: meta.summary || "Artigo sobre Direito Penal e Processo Penal.",
+      title: (meta as any).title || "Artigo",
+      description: (meta as any).summary || "Artigo sobre Direito Penal e Processo Penal.",
     };
   } catch {
     return {
