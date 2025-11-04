@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function Page({ params }: Params) {
   try {
     const { meta, content } = await readMDX("blog", params.slug);
+    const metaData = meta as any;
     return (
       <>
         <Header />
@@ -40,13 +41,13 @@ export default async function Page({ params }: Params) {
             Voltar para Blog
           </Link>
           <div className="space-y-4">
-            <h1 className="text-4xl md:text-5xl font-serif text-brand-dark">{meta.title}</h1>
-            {meta.summary && (
-              <p className="text-lg text-brand-ink leading-relaxed max-w-2xl">{meta.summary}</p>
+            <h1 className="text-4xl md:text-5xl font-serif text-brand-dark">{metaData.title}</h1>
+            {metaData.summary && (
+              <p className="text-lg text-brand-ink leading-relaxed max-w-2xl">{metaData.summary}</p>
             )}
-            {meta.date && (
+            {metaData.date && (
               <p className="text-sm text-slate-500">
-                {new Date(meta.date).toLocaleDateString("pt-BR", {
+                {new Date(metaData.date).toLocaleDateString("pt-BR", {
                   year: "numeric",
                   month: "long",
                   day: "numeric",
