@@ -1,0 +1,1 @@
+Substitua /public/logo.svg pela logomarca oficial (SVG/PNG). Este é um placeholder.
