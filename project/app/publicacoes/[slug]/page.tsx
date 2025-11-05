@@ -1,7 +1,6 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Prose from "@/components/Prose";
 import { readMDX } from "@/lib/mdx";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
@@ -46,7 +45,7 @@ export default async function Page({ params }: Params) {
               <p className="text-lg text-brand-ink leading-relaxed max-w-2xl">{metaData.summary}</p>
             )}
             {metaData.date && (
-              <p className="text-sm text-slate-500">
+              <p className="text-sm text-brand-ink/60">
                 {new Date(metaData.date).toLocaleDateString("pt-BR", {
                   year: "numeric",
                   month: "long",
