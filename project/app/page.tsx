@@ -1,4 +1,3 @@
-import LeadForm from "@/components/LeadForm";
 import SchemaOrg from "@/components/SchemaOrg";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -120,9 +119,29 @@ export default async function Page() {
               <p><strong className="text-brand-dark">Site:</strong> brunamelgarejo.adv.br</p>
             </div>
           </div>
-          <div className="p-8 rounded-2xl border border-brand-light bg-white shadow-sm">
-            <h2 className="text-xl font-semibold mb-4 text-brand-dark">Contato rápido</h2>
-            <LeadForm />
+          <div className="p-8 rounded-3xl bg-brand-dark text-white">
+            <h2 className="text-2xl md:text-3xl font-serif mb-4">
+              Pronto para defender seus direitos?
+            </h2>
+            <p className="text-lg mb-6 text-white/90">
+              Entre em contato e agende uma consulta. Estamos aqui para ajudar.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="/contato"
+                className="rounded-xl bg-brand-gold text-brand-dark px-6 py-3 font-semibold hover:bg-brand-gold/90 transition-all duration-200 ease-in-out"
+              >
+                Agendar consulta
+              </a>
+              <a
+                href="https://wa.me/5551981635522"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-xl border-2 border-white/30 px-6 py-3 font-semibold hover:bg-white/10 hover:border-white/50 transition-all duration-200 ease-in-out"
+              >
+                Falar no WhatsApp
+              </a>
+            </div>
           </div>
         </section>
 
