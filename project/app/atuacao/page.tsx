@@ -53,7 +53,7 @@ export default function Page() {
           ))}
         </div>
         <div className="pt-8 text-center">
-          <p className="text-sm text-slate-600 mb-4">
+          <p className="text-sm text-brand-ink mb-4">
             Tem dúvidas sobre sua situação específica? Entre em contato para uma avaliação personalizada.
           </p>
           <a
