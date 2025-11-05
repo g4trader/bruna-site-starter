@@ -35,23 +35,29 @@ export default function Page() {
           </p>
         </div>
 
-        <div className="p-8 rounded-2xl border border-brand-line bg-slate-50">
+        <div className="p-8 rounded-2xl border border-brand-light bg-brand-light">
           <h2 className="text-xl font-semibold mb-4 text-brand-dark">Contato</h2>
           <div className="space-y-2 text-sm">
             <p>
-              <strong className="text-brand-ink">OAB/RS:</strong> 115.891
+              <strong className="text-brand-dark">OAB/RS:</strong> 115.891
             </p>
             <p>
-              <strong className="text-brand-ink">Telefone/WhatsApp:</strong> (51) 98163-5522
+              <strong className="text-brand-dark">Telefone/WhatsApp:</strong> (51) 98163-5522
             </p>
             <p>
-              <strong className="text-brand-ink">E-mail:</strong> bruna@brunamelgarejo.adv.br
+              <strong className="text-brand-dark">E-mail:</strong>{" "}
+              <a href="mailto:bruna@brunamelgarejo.adv.br" className="text-brand-gold hover:underline">
+                bruna@brunamelgarejo.adv.br
+              </a>
             </p>
             <p>
-              <strong className="text-brand-ink">Site:</strong> brunamelgarejo.adv.br
+              <strong className="text-brand-dark">Site:</strong>{" "}
+              <a href="https://brunamelgarejo.adv.br" className="text-brand-gold hover:underline">
+                brunamelgarejo.adv.br
+              </a>
             </p>
             <p>
-              <strong className="text-brand-ink">Localização:</strong> Porto Alegre • RS
+              <strong className="text-brand-dark">Localização:</strong> Porto Alegre • RS
             </p>
           </div>
         </div>

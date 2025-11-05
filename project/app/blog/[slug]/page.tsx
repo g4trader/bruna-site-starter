@@ -57,12 +57,12 @@ export default async function Page({ params }: Params) {
           </div>
           <div className="prose prose-slate max-w-none text-brand-ink leading-relaxed">
             {!content?.trim() ? (
-              <p className="text-slate-600">Conteúdo indisponível.</p>
+              <p className="text-brand-ink">Conteúdo indisponível.</p>
             ) : (
               <MDXRemote source={content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
             )}
           </div>
-          <div className="pt-8 border-t border-brand-line">
+          <div className="pt-8 border-t border-brand-light">
             <Link
               href="/blog"
               className="inline-flex items-center gap-2 text-brand-gold hover:underline font-medium"
@@ -80,7 +80,7 @@ export default async function Page({ params }: Params) {
       <>
         <Header />
         <main className="max-w-4xl mx-auto px-4 py-12">
-          <p className="text-slate-600">Artigo não encontrado.</p>
+          <p className="text-brand-ink">Artigo não encontrado.</p>
           <Link href="/blog" className="text-brand-gold hover:underline">
             Voltar para Blog
           </Link>

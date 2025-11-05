@@ -34,8 +34,8 @@ export default async function Page() {
             ))}
           </div>
         ) : (
-          <div className="p-8 rounded-2xl border border-brand-line bg-slate-50 text-center">
-            <p className="text-slate-600">Em breve, novos artigos.</p>
+          <div className="p-8 rounded-2xl border border-brand-light bg-brand-light text-center">
+            <p className="text-brand-ink">Em breve, novos artigos.</p>
           </div>
         )}
       </main>
