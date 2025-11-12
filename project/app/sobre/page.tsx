@@ -1,18 +1,20 @@
 
+import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SchemaOrg from "@/components/SchemaOrg";
 
 export const metadata = {
   title: "Sobre",
-  description: "Bruna Melgarejo Rosa é advogada criminalista e professora de Direito Penal e Processo Penal, unindo prática e ensino para promover justiça.",
+  description:
+    "Bruna Melgarejo é advogada criminalista e professora de Direito Penal e Processo Penal, aliando prática e ensino com integridade, responsabilidade, humanidade e discrição.",
 };
 
 export default function Page() {
   return (
     <>
       <Header />
-      <main className="max-w-4xl mx-auto px-4 py-12 space-y-8">
+      <main className="max-w-5xl mx-auto px-4 py-12 space-y-10">
         <div className="space-y-4">
           <h1 className="text-4xl md:text-5xl font-serif text-brand-dark">Sobre</h1>
           <div className="inline-block px-3 py-1 rounded-full bg-brand-gold/10 text-brand-gold text-sm font-medium">
@@ -20,19 +22,35 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="prose prose-slate max-w-none space-y-6 text-brand-ink leading-relaxed">
-          <p className="text-lg">
-            <strong className="text-brand-dark">Bruna Melgarejo Rosa</strong> é advogada criminalista e professora de
-            Direito Penal e Processo Penal, unindo prática e ensino com o mesmo propósito: promover justiça, garantir
-            direitos e transformar realidades.
-          </p>
-          <p>
-            À frente do escritório <strong className="text-brand-dark">Bruna Melgarejo Advocacia Criminal</strong>, sua
-            trajetória é pautada por estratégia, ética e sensibilidade. Ao longo dos anos, consolidou experiência em
-            casos complexos, aliando rigor técnico à escuta atenta e empática. A atuação reflete a crença de que a
-            advocacia criminal é, antes de tudo, um compromisso com a liberdade, a dignidade humana e a verdade de cada
-            história.
-          </p>
+        <div className="grid md:grid-cols-[minmax(0,320px)_1fr] gap-8 items-start">
+          <div className="relative aspect-[3/4] w-full overflow-hidden rounded-3xl border border-brand-gold/30 bg-brand-light">
+            <Image
+              src="/bruna-melgarejo.jpg"
+              alt="Bruna Melgarejo"
+              fill
+              sizes="(max-width: 768px) 100vw, 320px"
+              priority
+              className="object-cover"
+            />
+          </div>
+          <div className="space-y-4 text-brand-ink leading-relaxed">
+            <p className="text-lg">
+              Bruna Melgarejo é advogada criminalista e professora de Direito Penal e Processo Penal, unindo prática e
+              ensino com o mesmo propósito: atuar com integridade, responsabilidade, humanidade e discrição.
+            </p>
+            <p>
+              À frente do escritório <span className="font-semibold text-brand-dark">Bruna Melgarejo Advocacia Criminal</span>, Bruna
+              construiu sua trajetória pautada pela estratégia, ética e sensibilidade.
+            </p>
+            <p>
+              Ao longo dos anos, consolidou experiência em casos complexos da área criminal, aliando rigor técnico à
+              escuta atenta e empática de cada cliente.
+            </p>
+            <p>
+              Sua atuação reflete a crença de que o exercício da advocacia criminal é, antes de tudo, um compromisso com a
+              liberdade, com a dignidade humana e com o respeito e a verdade de cada história contada.
+            </p>
+          </div>
         </div>
 
         <div className="p-8 rounded-2xl border border-brand-light bg-brand-light">
