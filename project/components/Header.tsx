@@ -2,15 +2,35 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
+import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const navigationItems = useMemo(
+    () => [
+      { href: "/sobre", label: "Sobre" },
+      { href: "/atuacao", label: "Atuação" },
+      { href: "/publicacoes", label: "Publicações" },
+      { href: "/blog", label: "Blog" },
+      { href: "/contato", label: "Contato" },
+    ],
+    []
+  );
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
 
   return (
     <header className={`sticky top-0 z-50 transition-all duration-200 ease-in-out ${scrolled ? "shadow-md" : ""}`}>
@@ -31,12 +51,53 @@ export default function Header() {
             </div>
           </Link>
           <nav className="hidden md:flex items-center gap-6 text-sm">
-            <Link href="/sobre" className="text-white hover:text-brand-gold transition-all duration-200 ease-in-out">Sobre</Link>
-            <Link href="/atuacao" className="text-white hover:text-brand-gold transition-all duration-200 ease-in-out">Atuação</Link>
-            <Link href="/publicacoes" className="text-white hover:text-brand-gold transition-all duration-200 ease-in-out">Publicações</Link>
-            <Link href="/blog" className="text-white hover:text-brand-gold transition-all duration-200 ease-in-out">Blog</Link>
-            <Link href="/contato" className="text-white hover:text-brand-gold transition-all duration-200 ease-in-out">Contato</Link>
-            <Link href="/contato" className="rounded-xl bg-brand-gold text-brand-dark px-4 py-2 font-semibold shadow-sm hover:bg-brand-gold/90 transition-all duration-200 ease-in-out">
+            {navigationItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-white hover:text-brand-gold transition-all duration-200 ease-in-out"
+              >
+                {item.label}
+              </Link>
+            ))}
+            <Link
+              href="/contato"
+              className="rounded-xl bg-brand-gold text-brand-dark px-4 py-2 font-semibold shadow-sm hover:bg-brand-gold/90 transition-all duration-200 ease-in-out"
+            >
+              Agendar consulta
+            </Link>
+          </nav>
+          <button
+            type="button"
+            className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/20 text-white hover:border-brand-gold/60 hover:text-brand-gold transition-all duration-200 ease-in-out"
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-navigation"
+            aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
+          >
+            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
+        <div
+          id="mobile-navigation"
+          className={`md:hidden overflow-hidden bg-brand-dark/95 border-t border-white/10 transition-[max-height] duration-300 ease-in-out ${
+            isMenuOpen ? "max-h-96" : "max-h-0"
+          }`}
+        >
+          <nav className="flex flex-col gap-2 px-4 py-4 text-sm">
+            {navigationItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-lg px-3 py-2 text-white/90 hover:text-white hover:bg-white/5 transition-colors duration-200 ease-in-out"
+              >
+                {item.label}
+              </Link>
+            ))}
+            <Link
+              href="/contato"
+              className="mt-2 rounded-xl bg-brand-gold text-brand-dark px-4 py-3 font-semibold shadow-sm hover:bg-brand-gold/90 transition-all duration-200 ease-in-out"
+            >
               Agendar consulta
             </Link>
           </nav>
