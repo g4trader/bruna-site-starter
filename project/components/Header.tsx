@@ -17,7 +17,14 @@ export default function Header() {
       <div className="bg-brand-dark text-white">
         <div className={`max-w-6xl mx-auto px-4 flex items-center justify-between transition-all duration-200 ease-in-out ${scrolled ? "h-[72px]" : "h-[84px]"}`}>
           <Link href="/" className="flex items-center gap-3 hover:opacity-90 transition-opacity">
-            <Image src="/logo.svg" alt="Bruna Melgarejo — Advocacia Criminal" width={scrolled ? 140 : 160} height={scrolled ? 50 : 64} priority className="transition-all duration-200 ease-in-out" />
+            <Image
+              src="/logo.png"
+              alt="Bruna Melgarejo — Advocacia Criminal"
+              width={scrolled ? 150 : 170}
+              height={scrolled ? 52 : 68}
+              priority
+              className="transition-all duration-200 ease-in-out"
+            />
           </Link>
           <nav className="hidden md:flex items-center gap-6 text-sm">
             <Link href="/sobre" className="text-white hover:text-brand-gold transition-all duration-200 ease-in-out">Sobre</Link>
