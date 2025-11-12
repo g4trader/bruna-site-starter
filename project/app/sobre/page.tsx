@@ -14,12 +14,9 @@ export default function Page() {
   return (
     <>
       <Header />
-      <main className="max-w-5xl mx-auto px-4 py-12 space-y-10">
+      <main className="max-w-4xl mx-auto px-4 py-12 space-y-8">
         <div className="space-y-4">
           <h1 className="text-4xl md:text-5xl font-serif text-brand-dark">Sobre</h1>
-          <div className="inline-block px-3 py-1 rounded-full bg-brand-gold/10 text-brand-gold text-sm font-medium">
-            OAB/RS 115.891
-          </div>
         </div>
 
         <div className="grid md:grid-cols-[minmax(0,320px)_1fr] gap-8 items-start">
