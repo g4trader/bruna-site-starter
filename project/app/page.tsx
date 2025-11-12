@@ -88,9 +88,6 @@ export default async function Page() {
         {/* HERO */}
         <section className="py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <div className="inline-block px-3 py-1 rounded-full bg-brand-gold/10 text-brand-gold text-sm font-medium mb-4">
-              OAB/RS 115.891
-            </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif leading-tight text-brand-dark">
               Advocacia Criminal estratégica, humana e técnica
             </h1>
