@@ -1,0 +1,19 @@
+{
+  "name": "Bruna Melgarejo Advocacia Criminal",
+  "short_name": "Bruna Melgarejo",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B132B",
+  "theme_color": "#0B132B",
+  "description": "Advocacia Criminal estratégica, humana e técnica em Porto Alegre.",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
+

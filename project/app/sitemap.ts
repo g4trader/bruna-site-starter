@@ -4,15 +4,17 @@ import { listMDX } from "@/lib/mdx";
 import { siteUrl } from "@/lib/site";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const staticRoutes = ["/","/sobre","/atuacao","/contato","/politica-de-privacidade"];
+  const staticRoutes = ["/", "/sobre", "/atuacao", "/contato", "/politica-de-privacidade"];
   const pub = await listMDX("publicacoes");
   const blog = await listMDX("blog");
+  const now = new Date();
 
   const entries: MetadataRoute.Sitemap = [
     ...staticRoutes.map((p) => ({
       url: `${siteUrl}${p}`,
       changeFrequency: "weekly" as const,
       priority: p === "/" ? 1 : 0.7,
+      lastModified: now,
     })),
     ...pub.map((p) => ({
       url: `${siteUrl}/publicacoes/${p.slug}`,

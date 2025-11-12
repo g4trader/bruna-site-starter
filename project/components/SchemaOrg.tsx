@@ -4,16 +4,18 @@ interface SchemaOrgProps {
   email: string;
   telephone: string;
   oab: string;
+  logo?: string;
+  sameAs?: string[];
 }
 
-export default function SchemaOrg({ name, url, email, telephone, oab }: SchemaOrgProps) {
+export default function SchemaOrg({ name, url, email, telephone, oab, logo, sameAs }: SchemaOrgProps) {
   const legalServiceSchema = {
     "@context": "https://schema.org",
     "@type": "LegalService",
-    "name": name,
-    "url": url,
-    "email": email,
-    "telephone": telephone,
+    name,
+    url,
+    email,
+    telephone,
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Porto Alegre",
@@ -25,16 +27,18 @@ export default function SchemaOrg({ name, url, email, telephone, oab }: SchemaOr
       "name": "Brasil",
     },
     "serviceType": "Advocacia Criminal",
+    ...(logo ? { logo } : {}),
+    ...(sameAs && sameAs.length > 0 ? { sameAs } : {}),
   };
 
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": "Bruna Melgarejo Rosa",
-    "jobTitle": "Advogada Criminalista",
-    "email": email,
-    "telephone": telephone,
-    "url": url,
+    name: "Bruna Melgarejo Rosa",
+    jobTitle: "Advogada Criminalista",
+    email,
+    telephone,
+    url,
     "identifier": {
       "@type": "PropertyValue",
       "name": "OAB/RS",

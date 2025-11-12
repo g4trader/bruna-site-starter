@@ -1,7 +1,9 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ArticleJsonLd from "@/components/ArticleJsonLd";
 import { readMDX } from "@/lib/mdx";
+import { siteMetadata, siteUrl } from "@/lib/site";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import Link from "next/link";
@@ -13,9 +15,28 @@ type Params = { params: { slug: string } };
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   try {
     const { meta } = await readMDX("publicacoes", params.slug);
+    const metaData = meta as any;
+    const url = `${siteUrl}/publicacoes/${params.slug}`;
     return {
-      title: (meta as any).title || "Publicação",
-      description: (meta as any).summary || "Publicação acadêmica sobre Direito Penal e Processo Penal.",
+      title: metaData.title || "Publicação",
+      description: metaData.summary || "Publicação acadêmica sobre Direito Penal e Processo Penal.",
+      alternates: {
+        canonical: url,
+      },
+      keywords: metaData.tags,
+      openGraph: {
+        type: "article",
+        url,
+        title: metaData.title,
+        description: metaData.summary,
+        publishedTime: metaData.date,
+        authors: [siteMetadata.founder],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: metaData.title,
+        description: metaData.summary,
+      },
     };
   } catch {
     return {
@@ -28,6 +49,7 @@ export default async function Page({ params }: Params) {
   try {
     const { meta, content } = await readMDX("publicacoes", params.slug);
     const metaData = meta as any;
+    const url = `${siteUrl}/publicacoes/${params.slug}`;
     return (
       <>
         <Header />
@@ -72,6 +94,16 @@ export default async function Page({ params }: Params) {
           </div>
         </main>
         <Footer />
+        <ArticleJsonLd
+          url={url}
+          title={metaData.title}
+          description={metaData.summary}
+          publishedTime={metaData.date}
+          keywords={metaData.tags}
+          authorName={siteMetadata.founder}
+          publisherName={siteMetadata.legalName}
+          publisherLogo={siteMetadata.logo}
+        />
       </>
     );
   } catch {

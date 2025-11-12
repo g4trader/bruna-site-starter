@@ -1,20 +1,72 @@
 
 import type { Metadata } from "next";
+import { siteMetadata, siteUrl } from "./site";
+
+const ogImage = `${siteUrl}/api/og`;
 
 export const defaultMetadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "Bruna Melgarejo Advocacia Criminal",
-    template: "%s | Bruna Melgarejo"
+    default: siteMetadata.title,
+    template: siteMetadata.titleTemplate,
   },
-  description: "Advocacia Criminal estratégica, humana e técnica em Porto Alegre.",
-  robots: { index: true, follow: true },
-  manifest: "/site.webmanifest",
+  description: siteMetadata.description,
+  keywords: siteMetadata.keywords,
+  authors: [{ name: siteMetadata.founder }],
+  creator: siteMetadata.founder,
+  publisher: siteMetadata.legalName,
+  applicationName: siteMetadata.shortName,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
+  referrer: "origin-when-cross-origin",
+  alternates: {
+    canonical: siteUrl,
+    languages: {
+      "pt-BR": siteUrl,
+    },
+  },
   openGraph: {
     type: "website",
-    title: "Bruna Melgarejo Advocacia Criminal",
-    description: "Estratégia, ética e sensibilidade para garantir direitos e transformar realidades.",
-    url: process.env.NEXT_PUBLIC_SITE_URL || "https://",
-    images: [{ url: "/api/og", width: 1200, height: 630, alt: "Bruna Melgarejo" }]
+    locale: siteMetadata.locale,
+    url: siteUrl,
+    siteName: siteMetadata.title,
+    title: siteMetadata.title,
+    description: siteMetadata.description,
+    images: [
+      {
+        url: ogImage,
+        width: 1200,
+        height: 630,
+        alt: siteMetadata.title,
+      },
+    ],
   },
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://example.com")
+  twitter: {
+    card: "summary_large_image",
+    title: siteMetadata.title,
+    description: siteMetadata.description,
+    images: [ogImage],
+  },
+  icons: {
+    icon: [
+      { url: "/logo.png", type: "image/png" },
+      { url: "/logo.svg", type: "image/svg+xml" },
+    ],
+    apple: "/logo.png",
+  },
+  manifest: "/site.webmanifest",
+  formatDetection: {
+    email: false,
+    address: true,
+    telephone: true,
+  },
 };

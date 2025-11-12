@@ -7,10 +7,30 @@ import PublicationCard from "@/components/PublicationCard";
 import YouTubeEmbed from "@/components/YouTubeEmbed";
 import FAQ from "@/components/FAQ";
 import { listMDX } from "@/lib/mdx";
+import { siteMetadata, siteUrl } from "@/lib/site";
+import type { Metadata } from "next";
 
-export const metadata = {
+const pageUrl = siteUrl;
+
+export const metadata: Metadata = {
   title: "Advocacia Criminal estratégica, humana e técnica",
-  description: "Atuação dedicada à liberdade, à dignidade humana e ao respeito à verdade de cada história. Bruna Melgarejo Rosa — OAB/RS 115.891",
+  description:
+    "Atuação dedicada à liberdade, à dignidade humana e ao respeito à verdade de cada história. Estratégia, ética e sensibilidade na advocacia criminal.",
+  alternates: {
+    canonical: pageUrl,
+  },
+  keywords: siteMetadata.keywords,
+  openGraph: {
+    url: pageUrl,
+    title: "Advocacia Criminal estratégica, humana e técnica",
+    description:
+      "Atuação dedicada à liberdade, à dignidade humana e ao respeito à verdade de cada história. Estratégia, ética e sensibilidade na advocacia criminal.",
+  },
+  twitter: {
+    title: "Advocacia Criminal estratégica, humana e técnica",
+    description:
+      "Atuação dedicada à liberdade, à dignidade humana e ao respeito à verdade de cada história.",
+  },
 };
 
 export default async function Page() {
@@ -260,11 +280,13 @@ export default async function Page() {
       <Footer />
       <WhatsAppFloat />
       <SchemaOrg
-        name="Bruna Melgarejo Advocacia Criminal"
-        url="https://brunamelgarejo.adv.br"
-        email="bruna@brunamelgarejo.adv.br"
-        telephone="+55-51-98163-5522"
+        name={siteMetadata.name}
+        url={siteMetadata.url}
+        email={siteMetadata.email}
+        telephone={siteMetadata.phone}
         oab="OAB/RS 115.891"
+        logo={siteMetadata.logo}
+        sameAs={Object.values(siteMetadata.social)}
       />
     </>
   );

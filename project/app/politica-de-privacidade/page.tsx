@@ -1,10 +1,29 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import type { Metadata } from "next";
+import { siteUrl } from "@/lib/site";
 
-export const metadata = {
-  title: "Política de Privacidade",
-  description: "Política de Privacidade e tratamento de dados pessoais conforme a LGPD.",
+const pageUrl = `${siteUrl}/politica-de-privacidade`;
+
+export const metadata: Metadata = {
+  title: "Política de Privacidade (LGPD)",
+  description:
+    "Política de privacidade e tratamento de dados em conformidade com a LGPD. Saiba como protegemos suas informações.",
+  alternates: {
+    canonical: pageUrl,
+  },
+  openGraph: {
+    url: pageUrl,
+    title: "Política de Privacidade (LGPD)",
+    description:
+      "Política de privacidade e tratamento de dados em conformidade com a LGPD. Saiba como protegemos suas informações.",
+  },
+  twitter: {
+    title: "Política de Privacidade (LGPD)",
+    description:
+      "Política de privacidade e tratamento de dados em conformidade com a LGPD. Saiba como protegemos suas informações.",
+  },
 };
 
 export default function Page() {

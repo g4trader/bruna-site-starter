@@ -3,10 +3,26 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PublicationCard from "@/components/PublicationCard";
 import { listMDX } from "@/lib/mdx";
+import { siteUrl } from "@/lib/site";
+import type { Metadata } from "next";
 
-export const metadata = {
+const pageUrl = `${siteUrl}/blog`;
+
+export const metadata: Metadata = {
   title: "Blog",
   description: "Artigos e conteúdos sobre Direito Penal, Processo Penal e direitos fundamentais.",
+  alternates: {
+    canonical: pageUrl,
+  },
+  openGraph: {
+    url: pageUrl,
+    title: "Blog | Conteúdo de Direito Penal",
+    description: "Artigos e conteúdos sobre Direito Penal, Processo Penal e direitos fundamentais.",
+  },
+  twitter: {
+    title: "Blog | Conteúdo de Direito Penal",
+    description: "Artigos e conteúdos sobre Direito Penal, Processo Penal e direitos fundamentais.",
+  },
 };
 
 export default async function Page() {

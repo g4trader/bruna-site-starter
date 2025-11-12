@@ -3,10 +3,26 @@ import ContactForm from "@/components/ContactForm";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import { siteUrl } from "@/lib/site";
+import type { Metadata } from "next";
 
-export const metadata = {
+const pageUrl = `${siteUrl}/contato`;
+
+export const metadata: Metadata = {
   title: "Contato",
   description: "Entre em contato para agendar uma consulta ou esclarecer dúvidas sobre sua situação.",
+  alternates: {
+    canonical: pageUrl,
+  },
+  openGraph: {
+    url: pageUrl,
+    title: "Contato | Bruna Melgarejo Advocacia Criminal",
+    description: "Entre em contato para agendar uma consulta ou esclarecer dúvidas sobre sua situação.",
+  },
+  twitter: {
+    title: "Contato | Bruna Melgarejo Advocacia Criminal",
+    description: "Entre em contato para agendar uma consulta ou esclarecer dúvidas sobre sua situação.",
+  },
 };
 
 export default function Page() {

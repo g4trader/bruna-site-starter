@@ -28,6 +28,9 @@ export async function listMDX(dir: "publicacoes" | "blog"): Promise<DocMeta[]> {
     const slug = f.replace(/\.mdx$/, "");
     const raw = await fs.readFile(path.join(contentDir, f), "utf8");
     const { data } = matter(raw);
+    if (data.draft) {
+      continue;
+    }
     out.push({
       title: data.title || slug,
       date: data.date || undefined,
@@ -45,5 +48,10 @@ export async function readMDX(dir: "publicacoes" | "blog", slug: string) {
   const file = path.join(root, "content", dir, `${slug}.mdx`);
   const raw = await fs.readFile(file, "utf8");
   const { data, content } = matter(raw);
+
+  if (data.draft) {
+    throw new Error("Draft content is not available");
+  }
+
   return { meta: { ...data, slug } as any, content };
 }

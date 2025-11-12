@@ -3,10 +3,26 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PublicationCard from "@/components/PublicationCard";
 import { listMDX } from "@/lib/mdx";
+import { siteUrl } from "@/lib/site";
+import type { Metadata } from "next";
 
-export const metadata = {
+const pageUrl = `${siteUrl}/publicacoes`;
+
+export const metadata: Metadata = {
   title: "Publicações & Pesquisa",
   description: "Publicações acadêmicas e pesquisas sobre Direito Penal, Processo Penal e Direitos Humanos.",
+  alternates: {
+    canonical: pageUrl,
+  },
+  openGraph: {
+    url: pageUrl,
+    title: "Publicações & Pesquisa | Bruna Melgarejo",
+    description: "Publicações acadêmicas e pesquisas sobre Direito Penal, Processo Penal e Direitos Humanos.",
+  },
+  twitter: {
+    title: "Publicações & Pesquisa | Bruna Melgarejo",
+    description: "Publicações acadêmicas e pesquisas sobre Direito Penal, Processo Penal e Direitos Humanos.",
+  },
 };
 
 export default async function Page() {

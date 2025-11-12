@@ -2,10 +2,29 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PracticeAreaCard from "@/components/PracticeAreaCard";
+import { siteUrl } from "@/lib/site";
+import type { Metadata } from "next";
 
-export const metadata = {
+const pageUrl = `${siteUrl}/atuacao`;
+
+export const metadata: Metadata = {
   title: "Áreas de Atuação",
-  description: "Defesa especializada em Direito Penal e Processo Penal. Experiência em casos complexos e todas as fases do processo.",
+  description:
+    "Defesa especializada em Direito Penal e Processo Penal. Experiência em casos complexos e todas as fases do processo.",
+  alternates: {
+    canonical: pageUrl,
+  },
+  openGraph: {
+    url: pageUrl,
+    title: "Áreas de Atuação | Defesa Penal estratégica",
+    description:
+      "Defesa especializada em Direito Penal e Processo Penal com atuação estratégica em todas as fases do processo.",
+  },
+  twitter: {
+    title: "Áreas de Atuação | Defesa Penal estratégica",
+    description:
+      "Experiência em casos complexos de Direito Penal e Processo Penal.",
+  },
 };
 
 const practiceAreas = [

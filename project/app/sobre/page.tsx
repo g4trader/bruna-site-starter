@@ -3,11 +3,29 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SchemaOrg from "@/components/SchemaOrg";
+import { siteMetadata, siteUrl } from "@/lib/site";
+import type { Metadata } from "next";
 
-export const metadata = {
+const pageUrl = `${siteUrl}/sobre`;
+
+export const metadata: Metadata = {
   title: "Sobre",
   description:
     "Bruna Melgarejo é advogada criminalista e professora de Direito Penal e Processo Penal, aliando prática e ensino com integridade, responsabilidade, humanidade e discrição.",
+  alternates: {
+    canonical: pageUrl,
+  },
+  openGraph: {
+    url: pageUrl,
+    title: "Sobre Bruna Melgarejo",
+    description:
+      "Conheça a trajetória da advogada criminalista Bruna Melgarejo, professora de Direito Penal e Processo Penal em Porto Alegre.",
+  },
+  twitter: {
+    title: "Sobre Bruna Melgarejo",
+    description:
+      "Advogada criminalista e professora de Direito Penal e Processo Penal com atuação ética, estratégica e humana.",
+  },
 };
 
 export default function Page() {
@@ -79,11 +97,13 @@ export default function Page() {
       </main>
       <Footer />
       <SchemaOrg
-        name="Bruna Melgarejo Advocacia Criminal"
-        url="https://brunamelgarejo.adv.br"
-        email="bruna@brunamelgarejo.adv.br"
-        telephone="+55-51-98163-5522"
+        name={siteMetadata.name}
+        url={siteMetadata.url}
+        email={siteMetadata.email}
+        telephone={siteMetadata.phone}
         oab="OAB/RS 115.891"
+        logo={siteMetadata.logo}
+        sameAs={Object.values(siteMetadata.social)}
       />
     </>
   );
