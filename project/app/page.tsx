@@ -118,7 +118,7 @@ export default async function Page() {
           </div>
           <div className="p-8 rounded-3xl bg-brand-dark text-white">
             <h2 className="text-2xl md:text-3xl font-serif mb-4">
-              Fale com advogado
+              Fale com um advogado
             </h2>
             <p className="text-lg mb-6 text-white/90">
               Entre em contato e agende uma consulta. Estamos aqui para ajudar.
@@ -233,7 +233,7 @@ export default async function Page() {
         <section className="py-16 text-center">
           <div className="max-w-2xl mx-auto p-8 rounded-3xl bg-brand-dark text-white">
             <h2 className="text-2xl md:text-3xl font-serif mb-4">
-              Fale com advogado
+              Fale com um advogado
             </h2>
             <p className="text-lg mb-6 text-white/90">
               Entre em contato e agende uma consulta. Estamos aqui para ajudar.
