@@ -1,5 +1,4 @@
 {
   "framework": "nextjs",
-  "installCommand": "cd project && npm install",
-  "buildCommand": "cd project && npm run build"
+  "rootDirectory": "project"
 }
