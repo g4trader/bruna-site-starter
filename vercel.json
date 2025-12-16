@@ -1,4 +1,4 @@
 {
-  "framework": "nextjs",
-  "rootDirectory": "project"
+  "buildCommand": "npm run build --prefix project",
+  "installCommand": "npm install --prefix project"
 }
