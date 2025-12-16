@@ -57,3 +57,29 @@ html {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* WordPress content styles */
+.prose img {
+  @apply rounded-lg my-6;
+}
+
+.prose ul,
+.prose ol {
+  @apply my-4 space-y-2;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-brand-gold pl-4 italic my-6;
+}
+
+.prose code {
+  @apply bg-brand-light px-1 py-0.5 rounded text-sm;
+}
+
+.prose pre {
+  @apply bg-brand-light p-4 rounded-lg overflow-x-auto my-6;
+}
+
+.prose .reading-time {
+  @apply text-sm text-brand-ink/60 italic;
+}
