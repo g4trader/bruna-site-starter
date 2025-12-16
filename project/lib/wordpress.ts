@@ -33,6 +33,20 @@ export interface WordPressPost {
   categories: number[];
   tags: number[];
   _links: Record<string, any>;
+  _embedded?: {
+    "wp:featuredmedia"?: Array<{
+      source_url: string;
+      media_details?: {
+        sizes?: {
+          medium?: { source_url: string };
+          large?: { source_url: string };
+          "medium_large"?: { source_url: string };
+          thumbnail?: { source_url: string };
+          full?: { source_url: string };
+        };
+      };
+    }>;
+  };
 }
 
 export interface WordPressPostsResponse {
@@ -113,6 +127,18 @@ export function formatWordPressPost(post: WordPressPost) {
     .replace(/&nbsp;/g, " ")
     .trim();
 
+  // Extrai a URL da imagem destacada
+  let featuredImageUrl: string | undefined;
+  if (post._embedded?.["wp:featuredmedia"]?.[0]) {
+    const media = post._embedded["wp:featuredmedia"][0];
+    // Prioriza tamanhos maiores, mas aceita qualquer tamanho disponível
+    featuredImageUrl =
+      media.media_details?.sizes?.large?.source_url ||
+      media.media_details?.sizes?.["medium_large"]?.source_url ||
+      media.media_details?.sizes?.medium?.source_url ||
+      media.source_url;
+  }
+
   return {
     id: post.id,
     slug: post.slug,
@@ -121,6 +147,7 @@ export function formatWordPressPost(post: WordPressPost) {
     content: post.content.rendered,
     date: post.date,
     link: post.link,
+    featuredImage: featuredImageUrl,
   };
 }
 

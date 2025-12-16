@@ -54,8 +54,9 @@ export default async function Page({ searchParams }: PageProps) {
                   key={p.id}
                   title={p.title}
                   summary={p.summary}
-                  href={`/blog/${p.slug}`}
+                  href={p.link}
                   date={p.date}
+                  featuredImage={p.featuredImage}
                 />
               ))}
             </div>

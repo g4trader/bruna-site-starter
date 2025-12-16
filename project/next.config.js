@@ -6,6 +6,15 @@ const nextConfig = {
   },
   // Ignorar rotas de API durante o build
   pageExtensions: ['ts', 'tsx', 'js', 'jsx'],
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'brunamelgarejo.adv.br',
+        pathname: '/**',
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;
